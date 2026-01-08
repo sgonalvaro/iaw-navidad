@@ -42,19 +42,20 @@ foreach ($carrito as $item) {
     $subtotal = $precio * $cantidad;
 
     echo "Producto: {$producto}\n";
-    echo "Precio unitari: " . number_format($precio, 2) . " €\n";
+    echo "Precio unitario: " . number_format($precio, 2) . " €\n";
     echo "Cantidad: {$cantidad}\n";
     echo "Subtotal: " . number_format($subtotal, 2) . " €\n";
     echo "--------------------------\n";
 }
 
 //total sin descuentos usando la función
-$totalSinDescuento = 0.0;
+$totalSinDescuento = calcularTotal($carrito);
 
+$portcentajeDescuento = 0.0;
 if ($totalSinDescuento > 1000) {
     $portcentajeDescuento = 0.10; // 10%
 } else if ($totalSinDescuento > 500) {
-    $portcentajeDescuento = 0.5; // 5%
+    $portcentajeDescuento = 0.05; // 5%
 } // si no cumple ninguna de las dos, se queda en 0.0
 
 //ahora calculo cuánto dinero se descuenta y el total final
@@ -63,5 +64,5 @@ $totalFinal = $totalSinDescuento - $importeDescuento;
 
 echo "\n=== Totales ===\n";
 echo "Total sin descuento: " . number_format($totalSinDescuento, 2) . " €\n";
-echo "Descuento aplicado: " . number_format($portcentajeDescuento * 100, 0) . "% (" . numberformat($importeDescuento, 2) . " €)\n";
+echo "Descuento aplicado: " . number_format($portcentajeDescuento * 100, 0) . "% (" . number_format($importeDescuento, 2) . " €)\n";
 echo "Total final: " . number_format($totalFinal, 2) . " €\n";
