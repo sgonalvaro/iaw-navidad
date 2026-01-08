@@ -40,7 +40,7 @@ $palabrasFiltradas = array_values(array_filter($palabras, function ($p) {
     // mb_strlen cuenta con tildes y ñ
     //es una condición, si es true la palabra se queda, si es false, se elimina
     return mb_strlen($p, 'UTF-8') >= 3;
-}))
+}));
 
 // cuento cuántas palabras quedan después del filtrado
 $totalPalabras = count($palabrasFiltradas);
@@ -67,11 +67,11 @@ foreach ($frecuencias as $palabra => $n) {
 }
 
 // muestro los resultados
-echo "Texto en minúsculas:\{$textoMin}\n\n";
-echo "Total de palabras (>= 3 letras): {$totalpalabras}\n\n";
+echo "Texto en minúsculas: {$textoMin}\n\n";
+echo "Total de palabras (>= 3 letras): {$totalPalabras}\n\n";
 
 echo "Frecuencias (>= 3 letras):\n";
-foreach ($frecuenciasas $palabra => $n) {
+foreach ($frecuencias as $palabra => $n) {
     echo "- {$palabra}: {$n}\n";
 }
 
